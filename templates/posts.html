@@ -7,7 +7,7 @@
     </div>
   </section>
   <section class="post_form">
-    <form action="/" method="POST">
+    <form action="/" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="logo">
 
@@ -27,23 +27,23 @@
       <li>
         <img class="menu_icon js-menu-icon" src="{% static 'img/menu.png' %}" alt="" />
         <div class="menu">
-          <a href="/edit/{{ post.id }}/">edit</a>
-          <a href="/delete/{{ post.id }}/">delete</a>
+          <a href="/edit/{{ post.id }}/">Edit</a><br>
+          <a href="/delete/{{ post.id }}/">Delete</a>
         </div>
         <div class="logo">
           <img src="{% static 'img/man-user.png' %}" alt="" />
         </div>
         <div class="name_body">
           <div class="name">{{ post.name }} </div> <br>
-          <div class="date">{{ post.created_at }} </div>
+          <div class="date">{{ post.created_at }} </div><br>
           <div class="body">{{ post.body }} </div>
-          <!-- {% if post.image %} -->
+          {% if post.image.url %}
            <img class="image" src="{{ post.image.url }}" style="width: 100%;" />
-          <!-- {% endif %} -->
+          {% endif %}
           <div class="heart">
             <a href="/likes/{{post.id}}">
-              <img src="{% static 'img/heart.png' %}" />
-            </a>
+              <img src="{% static 'img/heart.png' %}" 
+              /></a>
             {{post.like_count}}
           </div>
         </div>

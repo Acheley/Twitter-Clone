@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-al3q-7pxjz2l*pc-(imz)4k2=q2wti98$(m63rf(iwyzs_ite=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'posts',
-    'cloudinary'
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -87,6 +87,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd1tq8at2ld0bn6',
+#         'USER': 'zhumuzdzvpvjla',
+#         'HOST': 'ec2-54-173-77-184.compute-1.amazonaws.com',
+#         'PORT': 5432,
+#         'PASSWORD': '39c994d60c95ac7bf468592c888510d70455097ad7dc560bb869beab7ec9e985',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

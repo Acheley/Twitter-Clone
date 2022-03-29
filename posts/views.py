@@ -8,7 +8,6 @@ from cloudinary.forms import cl_init_js_callbacks
 
 
 def index(request):
-    form = PostForm(request.POST, request.FILES)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -17,8 +16,8 @@ def index(request):
         else:
             return HttpResponseRedirect(form.errors.as_json())
 
-    posts = Post.objects.all()[:20]
-    return render(request, 'posts.html', {'posts': posts, 'form': form})
+    posts = Post.objects.all().order_by('-created_at')[:20]
+    return render(request, 'posts.html', {'posts': posts })
 
 
 def delete(request, post_id):

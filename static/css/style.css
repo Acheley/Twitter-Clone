@@ -46,6 +46,7 @@
 
 .posts li .name_body .name {
   font-weight: bold;
+  font-size: 20px;
 }
 .posts li .name_body .date {
   color: gray;
